@@ -12,6 +12,26 @@ code {
     monospace;
 }
 
+#landing-page-video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 3%;
+}
+
+#center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .App{
   background-color: #f8f5f2;
 }
@@ -34,8 +54,6 @@ code {
   /* font-weight: bold; */
 
 }
-
-
 
 /* SIGN UP DIV */
 #signUpDiv {
