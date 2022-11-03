@@ -38,7 +38,6 @@ code {
 
 /* LOG IN */
 #loginDiv {
-  margin-top: 20px;
   background-color: #f8f5f2;
   /* opacity: 0.8; */
   position: absolute;
@@ -57,7 +56,6 @@ code {
 
 /* SIGN UP DIV */
 #signUpDiv {
-  margin-top: 20px;
   background-color: #f8f5f2;
   opacity: 0.8;
   position: absolute;
