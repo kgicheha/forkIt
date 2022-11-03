@@ -12,10 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { styled } from "@mui/material";
 
 function NavBar() {
   const pages = ['Home', 'Favorites', 'Shopping List'];
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  const settings = ['Profile', 'Logout'];
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -34,23 +35,29 @@ function NavBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  //CUSTOM CSS
+  const MyCustomImage = styled("img")({
+    marginTop: "0.5em",
+    marginBottom: "0.5em",
+  });
+  //CUSTOM CSS ^^
 
   return (
-    <AppBar position="static" style={{backgroundColor: "black"}}>
+    <AppBar position="static" style={{backgroundColor: "#078080"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <Box sx={{ flexGrow: 0 }}>
-          <Tooltip>
-            <IconButton sx={{ p: 0 }} href="#about">
-            <Avatar
+        {/* <Box sx={{ flexGrow: 0 }}> */}
+          {/* <Tooltip> */}
+            {/* <IconButton sx={{ p: 0 }} href="#about"> */}
+            <MyCustomImage
               src="/logo.png"
               alt="logo"
-              sx={{width: 200, height: 150}}
-              variant="square"
+              sx={{width: 150, height: 150}}
+              // variant="square"
             />
-            </IconButton>
-          </Tooltip>
-          </Box>
+            {/* </IconButton> */}
+          {/* </Tooltip> */}
+          {/* </Box> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -67,12 +74,12 @@ function NavBar() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'right',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -81,25 +88,24 @@ function NavBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem sx={{alignItems: "right"}} key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5em' }}
+                sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5em', textTransform: "none" }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-{/* 
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -128,7 +134,7 @@ function NavBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box> */}
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
