@@ -11,7 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.App{
+  background-color: #f8f5f2;
+}
 
+/* LANDING PAGE */
+#landingPageDiv{
+  height:100vh
+}
 #landing-page-video {
   display: block;
   margin-left: auto;
@@ -31,9 +38,9 @@ code {
   align-items: center;
   justify-content: center;
 }
-
-.App{
-  background-color: #f8f5f2;
+/* NAV BAR */
+#links{
+  text-decoration: none;
 }
 
 /* LOG IN */
@@ -51,7 +58,6 @@ code {
   text-align: center;
   justify-items: center;
   /* font-weight: bold; */
-
 }
 
 /* SIGN UP DIV */

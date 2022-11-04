@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { styled } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Link,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+  styled,
+} from "@mui/material";
+import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function NavBar() {
-  const pages = ['Home', 'Favorites', 'Shopping List'];
-  const settings = ['Profile', 'Logout'];
+  const pages = [
+    { name: "Home", link: "home" },
+    { name: "Favorites", link: "favorites" },
+    { name: "Shopping List", link: "shoppinglist" },
+  ];
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -43,22 +51,24 @@ function NavBar() {
   //CUSTOM CSS ^^
 
   return (
-    <AppBar position="static" style={{backgroundColor: "#078080"}}>
+    <AppBar position="static" style={{ backgroundColor: "#078080" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        {/* <Box sx={{ flexGrow: 0 }}> */}
+          {/* <Box sx={{ flexGrow: 0 }}> */}
           {/* <Tooltip> */}
-            {/* <IconButton sx={{ p: 0 }} href="#about"> */}
+          {/* <IconButton sx={{ p: 0 }} href="#about"> */}
+          <Link href="/home">
             <MyCustomImage
               src="/logo.png"
               alt="logo"
-              sx={{width: 150, height: 150}}
+              sx={{ width: 150, height: 150 }}
               // variant="square"
             />
-            {/* </IconButton> */}
+          </Link>
+          {/* </IconButton> */}
           {/* </Tooltip> */}
           {/* </Box> */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -73,36 +83,50 @@ function NavBar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
-                <MenuItem sx={{alignItems: "right"}} key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  sx={{ alignItems: "right" }}
+                  key={page.name}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Link id="links" textAlign="center" href={page.link}>
+                    {page.name}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5em', textTransform: "none" }}
-              >
-                {page}
-              </Button>
+              <Link href={page.link} id="links">
+                <Button
+                  key={page.name}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: "1.5em",
+                    textTransform: "none",
+                  }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -113,26 +137,33 @@ function NavBar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem textAlign="center">
+                <Link id="links">
+                  <AccountBoxIcon />
+                  Profile
+                </Link>
+              </MenuItem>
+              <MenuItem justifyItems="center">
+                <Link id="links">
+                  <LogoutIcon />
+                  Logout
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
@@ -140,4 +171,4 @@ function NavBar() {
     </AppBar>
   );
 }
-export default NavBar
+export default NavBar;

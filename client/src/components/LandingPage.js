@@ -24,7 +24,7 @@ function LandingPage() {
   }
 
   return (
-    <div>
+    <div id="landingPageDiv">
       <video id="landing-page-video" loop muted autoPlay src="/landingPage.mp4" type="video/mp4" />
       <Typography variant="h4" align= "center">
         Checkout our open-sourced React + Ruby on Rails Project
