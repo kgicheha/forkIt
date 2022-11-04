@@ -25,15 +25,10 @@ code {
   margin-right: auto;
   width: 50%;
   margin-top: 3%;
+  padding-bottom: 3%;
 }
 
 #center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#button-group {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,4 +65,24 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#laura-info {
+  float: left;
+  margin-left: 25%;
+}
+
+#kevin-info {
+  float: right;
+  margin-right: 25%;
+}
+
+#about-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#landingPageDiv {
+  height: 100vh;
 }
