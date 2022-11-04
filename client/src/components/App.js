@@ -7,6 +7,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import Favorites from "./Favorites";
 import ShoppingList from "./ShoppingList";
+import ScrollButton from "./ScrollButton";
 import { CssBaseline } from "@mui/material";
 
 function App() {
